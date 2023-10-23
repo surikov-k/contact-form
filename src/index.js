@@ -7,6 +7,7 @@ const port = 5050;
 
 const app = express();
 app.use(express.json());
+app.use(express.static('public'));
 
 const contactFormSchema = z.object({
   name: z.string().min(1, { message: 'Name is required' }),
@@ -19,7 +20,7 @@ app.post('/send-message', async (req, res) => {
     const {name, email, message} = contactFormSchema.parse(req.body);
     await sheets.spreadsheets.values.append({
       spreadsheetId: SHEET_ID,
-      range: 'Data!A2:C2',
+      range: 'Data!A:C',
       insertDataOption: 'INSERT_ROWS',
       valueInputOption: 'RAW',
       requestBody: {
