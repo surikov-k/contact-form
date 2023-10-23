@@ -3,5 +3,7 @@ POST http://localhost:5050/send-message HTTP/1.1
 Content-Type: application/json
 
 {
-  "test": "test"
+  "name": "Kate Lopez",
+  "email": "kenijom@gibiro.mr",
+  "message": "Gingerbread donut gummies caramels."
 }
